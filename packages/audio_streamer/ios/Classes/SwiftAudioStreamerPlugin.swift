@@ -114,6 +114,7 @@ public class SwiftAudioStreamerPlugin: NSObject, FlutterPlugin, FlutterStreamHan
       try AVAudioSession.sharedInstance().setCategory(
         AVAudioSession.Category.playAndRecord, options: [.defaultToSpeaker, .mixWithOthers])
       try AVAudioSession.sharedInstance().setActive(true)
+      try AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
 
       if let sampleRateNotNull = sampleRate {
         // Try to set sample rate
