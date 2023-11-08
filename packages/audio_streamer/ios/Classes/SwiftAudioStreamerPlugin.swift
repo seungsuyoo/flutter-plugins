@@ -111,8 +111,7 @@ public class SwiftAudioStreamerPlugin: NSObject, FlutterPlugin, FlutterStreamHan
     engine = AVAudioEngine()
 
     do {
-      try AVAudioSession.sharedInstance().setCategory(
-        AVAudioSession.Category.playAndRecord, options: [.defaultToSpeaker, .mixWithOthers])
+      try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .mixWithOthers])
       try AVAudioSession.sharedInstance().setActive(true)
       try AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
 
